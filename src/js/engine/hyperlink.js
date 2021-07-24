@@ -1,2 +1,5 @@
-const hyperlink = /(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-&?=%.]+/gm;
+const hyperlink = {
+    full: /(?:(?:https?|ftp):\/\/)([\w/\-?=%.]+\.[\w/\-&?=%.]+)/gm,
+    noprotocol:  /(?<!(?:(?:https?|ftp):\/\/))([\w/\-?=%.]+\.[\w/\-&?=%.]+)/gm
+}
 export default hyperlink;

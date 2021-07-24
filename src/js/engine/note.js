@@ -33,6 +33,7 @@ export default class Note {
     return result;
   }
 
+ 
   buildElement() {
     this.note = document.createElement('div');
     this.note.className = 'note';
@@ -60,7 +61,8 @@ export default class Note {
 
     this.noteText = document.createElement('div');
     this.noteText.className = 'note-text';
-    this.noteText.innerHTML = this.text.replace(hyperlink, '<a href = "$&" target=_blank>$&</a>');
+    this.noteText.innerHTML = this.text.replace(hyperlink.full, `<a href = "$1" target=_blank>$&</a>`);
+    this.noteText.innerHTML = this.text.replace(hyperlink.noprotocol, `<a href = "http://$1" target=_blank>$&</a>`);
 
     this.note.insertAdjacentElement('beforeend', this.noteText);
 
