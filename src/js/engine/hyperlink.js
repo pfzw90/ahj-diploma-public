@@ -1,3 +1,3 @@
-const hyperlink =/(?:(?:https?|ftp):\/\/)([\w/\-?=%.]+\.[\w/\-&?=%.]+)/gm;
+const hyperlink =/((https?|ftp):\/\/)+[\w/\-?=%.]+\.[\w/\-&?=%.]+/gm;
 
 export default hyperlink;
