@@ -54,7 +54,7 @@ export default class Note {
 
     this.favbutton.button.addEventListener('change', (ev) => {
       ev.preventDefault();
-      fetch(`${baseURL}${this.url}`, { method: 'PUT' });
+      fetch(`${baseURL}${this.id}`, { method: 'PUT' });
     });
 
     this.note.insertAdjacentElement('beforeend', this.noteInfo);
