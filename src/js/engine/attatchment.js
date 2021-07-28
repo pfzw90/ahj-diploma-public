@@ -70,7 +70,7 @@ export default class Attatchment {
           const download = document.createElement('a');
           download.className = 'download';
           download.href = url;
-          download.download = this.url;
+          download.download = `${baseURL}${this.url}`;
           download.innerText = `Download ${this.size}`;
           this.ui.modalWindow.insertAdjacentElement('beforeend', download);
         });
