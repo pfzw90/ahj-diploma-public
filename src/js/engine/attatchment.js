@@ -13,7 +13,7 @@ export default class Attatchment {
       this.name = file.name;
       this.type = new TypeChecker().check(this.name);
     } else {
-      this.url = data.url;
+      this.url = data.url.replace('/public','');
       this.size = data.size;
       this.name = data.name;
       this.type = data.type;
@@ -70,7 +70,7 @@ export default class Attatchment {
           const download = document.createElement('a');
           download.className = 'download';
           download.href = url;
-          download.download = `${baseURL}${this.url}`;
+          download.download = `${this.url}`;
           download.innerText = `Download ${this.size}`;
           this.ui.modalWindow.insertAdjacentElement('beforeend', download);
         });
