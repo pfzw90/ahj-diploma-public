@@ -51,6 +51,7 @@ export default class Attatchment {
 
     this.attatchmentElem.querySelector('.attatchment-name').addEventListener('click', () => {
       this.ui.openModal();
+      this.ui.openWaitMode();
       this.closePreview = document.createElement('span');
       this.closePreview.id = 'close-preview-button';
       this.closePreview.innerText = '✖';
@@ -62,6 +63,7 @@ export default class Attatchment {
 
       fetch(`${baseURL}${this.url}`).then((response) => {
         response.blob().then((blob) => {
+          this.ui.closeWaitMode();
           const file = new File([blob], this.name);
           const preview = new MediaPreview(file).elem;
           this.ui.modalWindow.insertAdjacentElement('beforeend', this.closePreview);
