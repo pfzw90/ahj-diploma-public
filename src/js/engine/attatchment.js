@@ -8,7 +8,7 @@ export default class Attatchment {
   constructor(file = null, data = null, ui) {
     if (file) {
       this.file = file;
-      this.url = file.path;
+      this.url = file.path.replace('/public', '');
       this.size = `${byteSize(file.size)}`;
       this.name = file.name;
       this.type = new TypeChecker().check(this.name);
