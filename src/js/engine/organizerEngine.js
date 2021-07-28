@@ -145,9 +145,12 @@ export default class Organizer {
         const data = new FormData();
         data.append('file', file);
         const req = new XMLHttpRequest();
-
-        req.addEventListener('load', () => {
+        req.addEventListener('loadstart', () => {
+          this.ui.openWaitMode();
+        });
+        req.addEventListener('loadend', () => {
           if (req.status >= 200 && req.status < 300) {
+            this.ui.closeWaitMode();
             try {
               const result = JSON.parse(req.response);
               const attatcment = new Attatchment(result, null, this.ui);

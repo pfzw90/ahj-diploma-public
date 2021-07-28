@@ -135,6 +135,17 @@ export default class OrganizerUI {
     this.modalContainer.remove();
   }
 
+  openWaitMode() {
+    this.topLayer = document.createElement('div');
+    this.topLayer.id = 'please-wait';
+    document.body.append(this.topLayer);
+    this.topLayer.innerText = 'Loading...'
+  }
+
+  closeWaitMode() {
+    this.topLayer.remove();
+  }
+
   openFilesForm() {
     this.openModal();
 
