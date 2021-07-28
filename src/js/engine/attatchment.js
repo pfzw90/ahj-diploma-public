@@ -25,7 +25,7 @@ export default class Attatchment {
     this.attatchmentElem = document.createElement('li');
     this.attatchmentElem.className = 'attatchment';
     this.attatchmentElem.innerHTML = `<span class = "attatchment-name">${this.name}</span> 
-    <span class = "attatchment-size">${this.size}</span>`;
+    <span class = "attatchment-size">(${this.size})</span>`;
 
     this.attatchmentElem.dataset.url = this.url;
     this.attatchmentElem.dataset.size = this.size;
@@ -73,7 +73,7 @@ export default class Attatchment {
           download.className = 'download';
           download.href = url;
           download.download = `${this.url}`;
-          download.innerText = `Download ${this.size}`;
+          download.innerText = `Download (${this.size})`;
           this.ui.modalWindow.insertAdjacentElement('beforeend', download);
         });
       });
